@@ -4,19 +4,19 @@
 
 {% block content %}
 
-    <p>This is the home page</p>
     <section id="product_section">
         <div class="row">
             {% if list_products %}
                 {% for prod in list_products %}
                 <div class="col-md-4 p-4">
-                    <div class="card">
-                        <img class="card-img-top" src="{{prod.images_product.url}}" alt="Title">
+                    <div class="card card-products">
+                        <img class="card-img-top" src="{{prod.images_product.url}}" alt="Product image"
+                        style="width: auto; height: 200px;">
                         <div class="card-body">
                             <h4 class="card-title">{{prod.name_product}}</h4>
                             <p class="card-subtitle">{{prod.category}}</p>
                             <p class="card-text">Model: {{prod.model_year}}</p>
-                            <p class="card-text" style="color:green; font-weight: bold; font-size:1.3rem;">
+                            <p class="card-text price-product">
                                 $ {{prod.price}}</p>
                         </div>
                     </div>

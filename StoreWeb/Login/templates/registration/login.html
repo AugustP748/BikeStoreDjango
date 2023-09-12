@@ -1,8 +1,26 @@
-<h2>Log In</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Log In</button>
-  <a href="{{ request.META.HTTP_REFERER }}">Back</a>
+{% extends 'base/base.html' %}
 
-</form>
+{% block yitle %}Log In{% endblock %}
+<h2>Log In</h2>
+
+
+{%block content %}
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <div class="form-floating mb-3">
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword">Password</label>
+    </div>
+
+
+    <button type="submit">Log In</button>
+    <a href="{{ request.META.HTTP_REFERER }}">Back</a>
+
+  </form>
+{% endblock %}

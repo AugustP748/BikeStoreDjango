@@ -1,0 +1,29 @@
+
+body{
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
+
+.card-products{
+    border:2px solid gray;
+    border-radius: 5px;
+    box-shadow: 10px 10px 20px rgba(170, 170, 170, 0.16);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.card-products:hover{
+    transform: scale(1.05);
+}
+
+.card-products .card-body{
+    height: 180px;
+    width: auto;
+}
+
+.price-product{
+    color:green; 
+    font-weight: bold; 
+    font-size:1.3rem;
+}
