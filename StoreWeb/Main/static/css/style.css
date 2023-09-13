@@ -27,3 +27,8 @@ body{
     font-weight: bold; 
     font-size:1.3rem;
 }
+
+.card-login{
+    width: 200px;
+    height: auto;
+}
