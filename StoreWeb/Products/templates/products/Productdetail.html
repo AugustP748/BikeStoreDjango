@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Product{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-5">
+        <section id="image-product-section">
+            <figure>
+                <img src="{{object.images_product.url}}" alt="" srcset="">
+            </figure>
+        </section>
+    </div>
+    <div class="col-7">
+        <section id="detail-product-section">
+            {{object.name_product}}
+            <span style="font-weight: bold; font-size:1.7rem;">$ {{object.price}}</span>
+        </section>
+    </div>
+</div>
+
+{% endblock %}

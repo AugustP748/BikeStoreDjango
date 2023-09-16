@@ -1,52 +1,52 @@
 {% extends 'base/base.html' %}
 
-{% block yitle %}Log In{% endblock %}
+{% block title %}Log In{% endblock %}
 
 
 {%block content %}
 
-
-<div class="card card-login my-3" style="width: 300px;">
-  <div class="card-header text-center">
-    Log in
-  </div>
-  <div class="card-body">
-   
-    <form method="post" class="mb-4">
-      {% csrf_token %}
-      {{ form.as_p }}
-      {% if error_message %}
-        <div class="alert alert-warning" role="alert">
-          <strong>{{ error_message }}</strong>
-        </div>  
-      {% endif %}
-  
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" name="username" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
-      </div>
-      <div class="form-floating">
-        <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
-        <label for="floatingPassword">Password</label>
-      </div>
-    <div class=" mt-4 mb-0">
-        <a class="small" href="#">Forgot Password?</a>
+<div class="d-flex justify-content-center align-items-center">
+  <div class="card card-login my-3" style="width: 400px;">
+    <div class="card-header text-center">
+      Log in
     </div>
-    <div class="row my-2">
-      <div class="col">
-        <button type="submit" class="btn btn-success w-100">Log In</button>
+    <div class="card-body">
+    
+      <form method="post" class="mb-4">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if error_message %}
+          <div class="alert alert-warning" role="alert">
+            <strong>{{ error_message }}</strong>
+          </div>  
+        {% endif %}
+    
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" name="username" id="floatingInput" placeholder="name@example.com">
+          <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
+          <label for="floatingPassword">Password</label>
+        </div>
+      <div class=" mt-4 mb-0">
+          <a class="small" href="#">Forgot Password?</a>
       </div>
-      <div class="col">
-        <a class="btn btn-danger w-100" href="{{ request.META.HTTP_REFERER }}">Back</a>
+      <div class="row my-2">
+        <div class="col">
+          <button type="submit" class="btn btn-success w-100">Log In</button>
+        </div>
+        <div class="col">
+          <a class="btn btn-danger w-100" href="{{ request.META.HTTP_REFERER }}">Back</a>
+        </div>
+
       </div>
+      </form>
 
     </div>
-    </form>
 
   </div>
-
 </div>
-
   
 
 {% endblock %}

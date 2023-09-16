@@ -8,19 +8,22 @@
         <div class="row">
             {% if list_products %}
                 {% for prod in list_products %}
-                <div class="col-md-4 p-4">
-                    <div class="card card-products">
-                        <img class="card-img-top" src="{{prod.images_product.url}}" alt="Product image"
-                        style="width: auto; height: 200px;">
-                        <div class="card-body">
-                            <h4 class="card-title">{{prod.name_product}}</h4>
-                            <p class="card-subtitle">{{prod.category}}</p>
-                            <p class="card-text">Model: {{prod.model_year}}</p>
-                            <p class="card-text price-product">
-                                $ {{prod.price}}</p>
+                <a href="{% url 'Products:productDetail' prod.id%}">
+                    <div class="col-md-4 p-4">
+                        <div class="card card-products">
+                            <img class="card-img-top" src="{{prod.images_product.url}}" alt="Product image"
+                            style="width: auto; height: 200px;">
+                            <div class="card-body">
+                                <h4 class="card-title">{{prod.name_product}}</h4>
+                                <p class="card-subtitle">{{prod.category}}</p>
+                                <p class="card-text">Model: {{prod.model_year}}</p>
+                                <p class="card-text price-product">
+                                    $ {{prod.price}}</p>
+                                <a class="btn btn-success w-100"><i class="fa-solid fa-cart-shopping"></i> Buy</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
                 {% endfor %}
             {% else %}
                 <h1>There aren´t Any Bike here, back soon!</h1>
