@@ -42,5 +42,5 @@ class Product(models.Model):
     stock = models.PositiveIntegerField()
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    
+    visible=models.BooleanField(default=True)
     

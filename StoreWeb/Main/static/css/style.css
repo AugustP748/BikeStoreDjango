@@ -18,7 +18,7 @@ body{
 }
 
 .card-products .card-body{
-    height: 180px;
+    height: 200px;
     width: auto;
 }
 
@@ -31,4 +31,10 @@ body{
 .card-login{
     width: 200px;
     height: auto;
+}
+
+footer{
+    padding:10px;
+    border-top: 2px solid gray;
+    
 }

@@ -7,14 +7,32 @@
     <div class="col-5">
         <section id="image-product-section">
             <figure>
-                <img src="{{object.images_product.url}}" alt="" srcset="">
+                <img class="img-fluid" src="{{object.images_product.url}}" alt="" srcset="" 
+                style="width: auto; height: 400px; border:2px solid gray; border-radius: 5px;" >
             </figure>
         </section>
     </div>
     <div class="col-7">
         <section id="detail-product-section">
-            {{object.name_product}}
-            <span style="font-weight: bold; font-size:1.7rem;">$ {{object.price}}</span>
+            <h1>{{object.name_product}}</h1>
+            <ul>
+                <li><strong>Category: </strong>{{object.category}}</li>
+                <li><strong>Brand: </strong>{{object.brand}}</li>
+                <li><strong>Model Year: </strong>{{object.model_year}}</li>
+                <li><strong>Availability: </strong>{{object.stock}}</li>
+            </ul>
+            <h6><strong>Description</strong></h6>
+            <p>{{object.description}}</p>
+            <span style="font-weight: bold; font-size:1.5rem; color:green; display:block;">$ {{object.price}}</span>
+
+
+                    <button class="btn btn-success"><i class="fa-solid fa-tag"></i> Buy</button>
+               
+                
+                    <button class="btn btn-warning"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</button>
+
+                
+            </div>
         </section>
     </div>
 </div>
