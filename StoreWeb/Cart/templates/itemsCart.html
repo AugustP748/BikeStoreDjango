@@ -1,0 +1,52 @@
+{% extends 'base/base.html' %}
+
+{% block title %}Cart{% endblock %}
+
+
+{%block content %}
+
+<div class="d-flex justify-content-center align-items-center">
+  
+    <div class="table-responsive">
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price Unit</th>
+                    <th scope="col">Subtotal</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if request.session.cart.items %}
+                    {% for key,value in request.session.cart.items %}
+                        <tr class="">
+                            <td style="width: 50px;">{{value.images_product.url}}</td>
+                            <td>{{value.product_name}}</td>
+                            <td>{{value.quantity}}</td>
+                            <td>{{value.price}}</td>
+                            <td>{{value.subtotal}}</td>
+                            <td>
+                                <a class="btn btn-success">+</a>
+                                <a class="btn btn-danger">-</a>
+                            </td>
+
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                <tr class="">
+                    <td>There aren´t any Product here...</td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+    
+
+
+</div>
+  
+
+{% endblock %}
