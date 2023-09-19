@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import redirect,render
 from Products.models import Product
 from .cart import Cart
@@ -7,7 +8,9 @@ def add_product(request,product_id):
     cart = Cart(request)
     product = Product.objects.get(id=product_id)
     cart.Add_to_cart(product)
+    #return HttpResponseRedirect(request.path_info)
     return redirect("Main:home")
+
 
 def delete_product(request,product_id):
     cart = Cart(request)
