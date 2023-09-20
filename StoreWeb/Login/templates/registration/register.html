@@ -16,6 +16,9 @@
       <form method="post" class="mb-4">
         {% csrf_token %}
         {{form|crispy}}
+
+        <a class="btn btn-success" type="submit">Create Account</a>
+        <a class="btn btn-danger" href="{{ request.META.HTTP_REFERER }}">Back</a>
       </form>
 
     </div>
