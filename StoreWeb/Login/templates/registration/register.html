@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Register{% endblock %}
+
+
+{%block content %}
+
+<div class="d-flex justify-content-center align-items-center">
+  <div class="card card-login my-3" style="width: 400px;">
+    <div class="card-header text-center">
+      Create a new account
+    </div>
+    <div class="card-body">
+    
+      <form method="post" class="mb-4">
+        {% csrf_token %}
+        {{form|crispy}}
+      </form>
+
+    </div>
+
+  </div>
+</div>
+  
+
+{% endblock %}

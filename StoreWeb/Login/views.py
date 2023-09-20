@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login,logout,authenticate
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+from django.views import View
 
 # Create your views here.
 def login_view(request):
@@ -23,3 +25,12 @@ def logout_view(request):
     logout(request)
     messages.success(request,("Cerraste sesión!"))
     return redirect('Main:home')
+
+class Registration(View):
+    
+    def get(self,request):
+        form = UserCreationForm()
+        return render(request,"registration/register.html",{"form":form})
+
+    def post(self,request):
+        ...
