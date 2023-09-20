@@ -7,39 +7,64 @@
 
 <div class="d-flex justify-content-center align-items-center">
     {% if request.session.cart.items %}
-        <div class="table-responsive">
-            <table class="table ">
-                <thead>
-                    <tr>
-                        <th scope="col">Image</th>
-                        <th scope="col">Product</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Price Unit</th>
-                        <th scope="col">Subtotal</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                        {% for key,value in request.session.cart.items %}
-                            <tr class="">
-                                <td style="width: 50px;">{{value.images_product.url}}</td>
-                                <td>{{value.product_name}}</td>
-                                <td>{{value.quantity}}</td>
-                                <td>{{value.price}}</td>
-                                <td>{{value.subtotal}}</td>
-                                <td>
-                                    <a class="btn btn-success" href="{% url 'Carts:add_cart' value.product_id %}">+</a>
-                                    <a class="btn btn-warning" href="{% url 'Carts:substract_cart' value.product_id %}">-</a>
-                                    <a class="btn btn-danger" href="{% url 'Carts:delete_cart' value.product_id %}">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </a>
-                                </td>
-
-                            </tr>
-                        {% endfor %}
-                </tbody>
-            </table>
+        
+    <div class="card text-center">
+        <div class="card-header">
+          My Cart
         </div>
+        <div class="card-body">
+          
+            <div class="table-responsive">
+                <table class="table ">
+                    <thead>
+                        <tr>
+                            <th scope="col">Image</th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price Unit</th>
+                            <th scope="col">Subtotal</th>
+                            <th scope="col">Action</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            {% for key,value in request.session.cart.items %}
+                                <tr class="">
+                                    <td style="width: 50px;">{{value.images_product.url}}</td>
+                                    <td>{{value.product_name}}</td>
+                                    <td>{{value.quantity}}</td>
+                                    <td>{{value.price}}</td>
+                                    <td>{{value.subtotal}}</td>
+                                    <td>
+                                        <a class="btn btn-primary" href="{% url 'Carts:add_cart' value.product_id %}">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </a>
+                                        <a class="btn btn-warning" href="{% url 'Carts:substract_cart' value.product_id %}">
+                                            <i class="fa-solid fa-minus"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-danger" href="{% url 'Carts:delete_cart' value.product_id %}">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </a>
+                                    </td>
+    
+                                </tr>
+                            {% endfor %}
+                    </tbody>
+                </table> 
+            </div>
+            <h3>Total: $ {{total_cart}}</h3>
+        </div>
+        <div class="card-footer text-body-secondary">
+          <a href="#" class="btn btn-success"><i class="fa-solid fa-circle-check"></i> Order</a>
+          <a href="{% url 'Carts:clear_cart' %}" class="btn btn-danger"><i class="fa-solid fa-circle-xmark">
+          </i> Clear Cart</a>
+        </div>
+      </div>
+
+        
+        
     {% else %}
         <h1>There aren´t any Product here...</h1>
     {% endif %}

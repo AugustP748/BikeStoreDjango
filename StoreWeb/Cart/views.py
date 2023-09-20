@@ -9,7 +9,8 @@ def add_product(request,product_id):
     product = Product.objects.get(id=product_id)
     cart.Add_to_cart(product)
     #return HttpResponseRedirect(request.path_info)
-    return redirect("Main:home")
+    #return redirect("Main:home")
+    return redirect("Carts:items_cart")
 
 
 def delete_product(request,product_id):
@@ -22,7 +23,9 @@ def substrat_product(request,product_id):
     cart = Cart(request)
     product = Product.objects.get(id=product_id)
     cart.Subtract_units(product)
-    return redirect("Main:home")
+    #return redirect("Main:home")
+    return redirect("Carts:items_cart")
+
 
 def clear_card(request):
     cart = Cart(request)

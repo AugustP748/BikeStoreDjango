@@ -33,4 +33,13 @@ class Registration(View):
         return render(request,"registration/register.html",{"form":form})
 
     def post(self,request):
-        ...
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request,user)
+            return redirect('Main:home')
+        else:
+            for msg in form.error_messages:
+                messages.error(request,form.error_messages[msg])
+            return render(request,"registration/register.html",{"form":form})
+            

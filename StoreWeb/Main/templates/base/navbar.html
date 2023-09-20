@@ -27,7 +27,9 @@
             </li>
               <li class="nav-item">
                   <a class="nav-link" href="{% url 'Carts:items_cart' %}">
-                    <i class="fa-solid fa-cart-shopping"></i> Cart {{total_cart}}
+                    <i class="fa-solid fa-cart-shopping"></i> My Cart
+                    <span class="badge text-bg-secondary">{{ total_cart|length }}
+                    </span>
                 </a>
               </li>
               
